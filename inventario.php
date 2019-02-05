@@ -66,29 +66,37 @@
 				</ul>
 				<!--Fin De Barra De Menu-->
                 <br>
-                <table class="table" style="width: 700px; text-align: center">
+                <table class="table" >
                     <thead>
                         <tr>
-                            <th scope="col" style="text-align: center; color: black"><b>#</b></th>
-                            <th scope="col" style="width: 400px; text-align: center; color: black"><b>PRODUCTO</b></th>
-                            <th scope="col" style="text-align: center; color: black"><b>CANTIDAD</b></th>
+                            <th scope="col" ><b>Cod</b></th>
+                            <th scope="col" ><b>Nombre</b></th>
+                            <th scope="col" ><b>Cantidad</b></th>
+                            <th scope="col" ><b>Cant. Comprar</b></th>
+                            <th scope="col" ><b>Precio Aprox</b></th>
                         </tr>
                     </thead>
                     <tbody>
 						<tr>
-                            <th scope="row" style="text-align: center; color: black">1</th>
-							<td style="width: 400px ">Algodón</td>
-							<td>2 bolsas</td>
+                            <th scope="row" 1</th>
+							<td>Algodón</td>
+							<td>2 </td>
+							<td>10</td>
+							<td>Lps10</td>
 						</tr>
 						<tr>
-                            <th scope="row" style="text-align: center; color: black">2</th>
-							<td style="width: 400px ">Jeringas</td>
-							<td>1 caja (48 unidades)</td>
+                            <th scope="row" >2</th>
+							<td >Jeringas</td>
+							<td>1</td>
+							<td>15</td>
+							<td>Lps 75</td>
 						</tr>
 						<tr>
-                            <th scope="row" style="text-align: center; color: black">3</th>
-							<td style="width: 400px ">Tubos de Ensayo</td>
-							<td>35 unidades</td>
+                            <th scope="row" >3</th>
+							<td >Tubos de Ensayo</td>
+							<td>35</td>
+							<td>100</td>
+							<td>Lps 1200</td>
                         </tr>
                     </tbody>
 				</table>
