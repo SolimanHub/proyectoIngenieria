@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Laboratorio Clinico Emanuel-Resultados</title>
+ 	<meta charset="utf-8" />
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/carousel.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -37,9 +38,9 @@
 						</ul>
 					</li> 
 
-					<li><b> <a>Inventario</a></b></li>
-					<li><b> <a>Catalogo De Servicios</a></b></li>
-					<li><b> <a>Emision De Resultados</a></li>
+					<li><b> <a href="inventario.php">Inventario</a></b></li>
+					<li><b> <a href="catalogo.php">Catalogo De Servicios</a></b></li>
+					<li><b> <a href="resultados.php">Emision De Resultados</a></li>
 					<li><b> <a>Cliente</a></b></li>
 					<li><b> <a>Administracion</a></b></li>
 			</ul>
