@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laboratorio Clinico Emanual-Resultados</title>
+	<title>Laboratorio Clinico Emanuel-Resultados</title>
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/carousel.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
