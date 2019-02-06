@@ -117,4 +117,14 @@ h1
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+  margin-top: 10px;
+}
+.cuadro{
+  background-color: rgba(0.5,0.5,0.5,0.5);
+  border: black 1px solid;
+  padding: 30px;
+  border-radius: 10px;
+}
+  width: 300px;
+  padding-bottom: 30px;
 }
