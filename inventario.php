@@ -78,7 +78,7 @@
                     </thead>
                     <tbody>
 						<tr>
-                            <th scope="row" 1</th>
+                            <th scope="row" >1</th>
 							<td>Algodón</td>
 							<td>2 </td>
 							<td>10</td>
