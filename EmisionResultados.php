@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Laboratorio Clinico Emanual-Catalogo</title>
+	<meta charset="utf-8" />
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/carousel.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -29,20 +30,20 @@
 				</div>
 				<!--Lista Anidada-->
 
-			<ul id="menu">
-					<li><input type="checkbox" name="list" id="nivel1-1">  <label for="nivel1-1"> Facturacion</label>
-						<ul class="interior">
-							<li><a href="#"> Crear Factura </a></li>
-							<li><a href="#"> Historial De Factura</a></li>
-						</ul>
-					</li> 
+				<ul id="menu">
+						<li><input type="checkbox" name="list" id="nivel1-1">  <label for="nivel1-1"> Facturacion</label>
+							<ul class="interior">
+								<li><a href="#"> Crear Factura </a></li>
+								<li><a href="#"> Historial De Factura</a></li>
+							</ul>
+						</li> 
 
-					<li><b> <a>Inventario</a></b></li>
-					<li><b> <a>Catalogo De Servicios</a></b></li>
-					<li><b> <a>Emision De Resultados</a></li>
-					<li><b> <a>Cliente</a></b></li>
-					<li><b> <a>Administracion</a></b></li>
-			</ul>
+						<li><b> <a>Inventario</a></b></li>
+						<li><b> <a>Catalogo De Servicios</a></b></li>
+						<li><b> <a>Emision De Resultados</a></li>
+						<li><b> <a>Cliente</a></b></li>
+						<li><b> <a>Administracion</a></b></li>
+				</ul>
 			<!--Final De La Lista Anidada-->
 
 			</div>
