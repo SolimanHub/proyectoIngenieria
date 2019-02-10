@@ -30,7 +30,7 @@
 					<!--Lista Anidada-->
 
 				<ul id="menu">
-						<li><input type="checkbox" name="list" id="nivel1-1">  <label for="nivel1-1"> Facturacion</label>
+						<li><input type="checkbox" name="list" id="nivel1-1">  <label for="nivel1-1"> Facturación</label>
 							<ul class="interior">
 								<li><a href="crear_factura.php"> Crear Factura </a></li>
 								<li><a href="historial_factura.php"> Historial De Factura</a></li>

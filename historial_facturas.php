@@ -30,20 +30,20 @@
 				</div>
 				<!--Lista Anidada-->
 
-			<ul id="menu">
-					<li><input type="checkbox" name="list" id="nivel1-1">  <label for="nivel1-1"> Facturacion</label>
-						<ul class="interior">
+				<ul id="menu">
+						<li><input type="checkbox" name="list" id="nivel1-1">  <label for="nivel1-1"> Facturación</label>
+							<ul class="interior">
 								<li><a href="crear_factura.php"> Crear Factura </a></li>
 								<li><a href="#"> Historial De Factura</a></li>
-						</ul>
-					</li> 
+							</ul>
+						</li> 
 
-					<li><b> <a>Inventario</a></b></li>
-					<li><b> <a>Catalogo De Servicios</a></b></li>
-					<li><b> <a>Emision De Resultados</a></li>
-					<li><b> <a>Cliente</a></b></li>
-					<li><b> <a>Administracion</a></b></li>
-			</ul>
+						<li><b> <a href="inventario.php">Inventario</a></b></li>
+						<li><b> <a href="catalogo.php">Catalogo De Servicios</a></b></li>
+						<li><b> <a href="resultados.php">Emision De Resultados</a></li>
+						<li><b> <a href="cliente.php">Cliente</a></b></li>
+						<li><b> <a href="administracion.php">Administración</a></b></li>
+				</ul>
 			<!--Final De La Lista Anidada-->
 
 			</div>
