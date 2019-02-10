@@ -39,7 +39,7 @@
 						<li><b> <a href="#">Inventario</a></b></li>
 						<li><b> <a href="catalogo.php">Catalogo De Servicios</a></b></li>
 						<li><b> <a href="resultados.php">Emision De Resultados</a></li>
-						<li><b> <a>Cliente</a></b></li>
+						<li><b> <a href="cliente.php">Cliente</a></b></li>
 						<li><b> <a href="administracion.php">Administracion</a></b></li>
 				</ul>
 				<!--Final De La Lista Anidada-->
