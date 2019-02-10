@@ -32,8 +32,8 @@
 				<ul id="menu">
 						<li><input type="checkbox" name="list" id="nivel1-1">  <label for="nivel1-1"> Facturacion</label>
 							<ul class="interior">
-								<li><a href="#"> Crear Factura </a></li>
-								<li><a href="#"> Historial De Factura</a></li>
+								<li><a href="crear_factura.php"> Crear Factura </a></li>
+								<li><a href="historial_factura.php"> Historial De Factura</a></li>
 							</ul>
 						</li> 
 						<li><b> <a href="inventario.php">Inventario</a></b></li>

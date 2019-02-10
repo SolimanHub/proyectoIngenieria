@@ -35,7 +35,7 @@
 					<li> <label for="nivel1-1"> Facturacion</label>
 						<ul class="interior">
 							<li><a href="#"> Crear Factura </a></li>
-							<li><a href="#"> Historial De Factura</a></li>
+							<li><a href="historial_factura.php"> Historial De Factura</a></li>
 						</ul>
 					</li> 
 
