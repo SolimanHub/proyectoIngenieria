@@ -74,4 +74,9 @@ body{
   font-family: 'Comic Sans MS', arial;
 }
 
+span{
+  width: 30px;
+  color: black;
+}
+
 
