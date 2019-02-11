@@ -7,8 +7,8 @@
 	<script src="js/carousel.js"></script>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/styles.css">
-
+	<link rel="stylesheet" type="text/css" href="css/barra-menu.css">
+	<link rel="stylesheet" type="text/css" href="css/carousel.css">
 	<link href="http://allfont.es/allfont.css?fonts=comic-sans-ms" rel="stylesheet" type="text/css" />
 	
 </head>
@@ -35,13 +35,13 @@
 						<li><input type="checkbox" name="list" id="nivel1-1">  <label for="nivel1-1"> Facturación</label>
 							<ul class="interior">
 								<li><a href="#"> Crear Factura </a></li>
-								<li><a href="historial_factura.php"> Historial De Factura</a></li>
+								<li><a href="historial_facturas.php"> Historial De Factura</a></li>
 							</ul>
 						</li> 
 
 						<li><b> <a href="inventario.php">Inventario</a></b></li>
 						<li><b> <a href="catalogo.php">Catalogo De Servicios</a></b></li>
-						<li><b> <a href="resultados.php">Emision De Resultados</a></li>
+						<li><b> <a href="resultados.php">Emisión De Resultados</a></li>
 						<li><b> <a href="cliente.php">Cliente</a></b></li>
 						<li><b> <a href="administracion.php">Administración</a></b></li>
 				</ul>
