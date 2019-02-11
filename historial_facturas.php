@@ -7,7 +7,6 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/barra-menu.css">
-	<link rel="stylesheet" type="text/css" href="css/carousel.css">
 	<link href="http://allfont.es/allfont.css?fonts=comic-sans-ms" rel="stylesheet" type="text/css" />
 	
 </head>
@@ -29,10 +28,10 @@
 					<a href="#">Cerrar Sesion</a>
 				</div>
 				<!--Lista Anidada-->
-
+				
 				<ul id="menu">
-						<li><input type="checkbox" name="list" id="nivel1-1">  <label for="nivel1-1"> Facturación</label>
-							<ul class="interior">
+						<li><input type="checkbox" name="list" id="nivel1-1"> <label for="nivel1-1"> <b>Facturación</b> </label>
+							<ul id="nivel1-1" class="interior">
 								<li><a href="crear_factura.php"> Crear Factura </a></li>
 								<li><a href="#"> Historial De Factura</a></li>
 							</ul>
