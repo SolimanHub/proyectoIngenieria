@@ -40,7 +40,7 @@
 						</li> 
 
 						<li><b> <a href="inventario.php">Inventario</a></b></li>
-						<li><b> <a href="catalogo.php">Catalogo De Servicios</a></b></li>
+						<li><b> <a href="catalogo.php">Catálogo De Servicios</a></b></li>
 						<li><b> <a href="resultados.php">Emisión De Resultados</a></li>
 						<li><b> <a href="cliente.php">Cliente</a></b></li>
 						<li><b> <a href="administracion.php">Administración</a></b></li>
