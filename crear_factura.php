@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laboratorio Clinico Emanual-Crear factura</title>
+	<title>Laboratorio Clinico Emanuel-Crear factura</title>
 
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/carousel.js"></script>
