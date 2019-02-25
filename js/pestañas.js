@@ -3,7 +3,6 @@ var tabLinks = new Array();
 var contentDivs = new Array();
 
 function init() {
-
     //Se obtienen las pestañas y los contenidos de la página.
     var tabListItems = document.getElementById('myTab').childNodes; //mytab hace referencia al id del <ul> que contiene las pestañas
     for ( var i = 0; i < tabListItems.length; i++ ) {
