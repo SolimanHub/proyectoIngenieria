@@ -3,12 +3,14 @@
 	<head>
 		<title>Laboratorio Clinico Emanuel-Administración</title>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/barra-menu.css">
 		<link rel="stylesheet" type="text/css" href="css/carousel.css">
 		<link rel="stylesheet" type="text/css" href="css/pestañas.css">
-		<link href="http://allfont.es/allfont.css?fonts=comic-sans-ms" rel="stylesheet" type="text/css" />
-		
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/styleBarra.css">
+		<link href="http://allfont.es/allfont.css?fonts=comic-sans-ms" rel="stylesheet" type="text/css"/>
 	</head>
 	<body onload="init()">
 
@@ -16,38 +18,12 @@
 		<div class="container-fluid">
 			<div class="row">
 				<!--Aqui Esta Contenida La Barra De Menu-->
-				<div class="col-lg-3 lista">
-					<div class="col-lg-4">
-						<img src="img/usuario.jpg" class="img-responsive img-circle">
-					</div>
-					<div class="col-lg-7">
-						<label style="margin-top: 10px "><b>nombre_user</b></label>
-						<br>
-						<a href="#">Perfil</a>
-						<br>
-						<a href="#">Cerrar Sesion</a>
-					</div>
-					<!--Lista Anidada-->
-
-				<ul id="menu">
-						<li><input type="checkbox" name="list" id="nivel1-1">  <label for="nivel1-1"> Facturación</label>
-							<ul class="interior">
-								<li><a href="crear_factura.php"> Crear Factura </a></li>
-								<li><a href="historial_facturas.php"> Historial De Factura</a></li>
-							</ul>
-						</li> 
-						<li><b> <a href="inventario.php">Inventario</a></b></li>
-						<li><b> <a href="catalogo.php">Catálogo De Servicios</a></b></li>
-						<li><b> <a href="resultados.php">Emisión De Resultados</a></li>
-						<li><b> <a href="cliente.php">Cliente</a></b></li>
-						<li><b> <a href="#">Administración</a></b></li>
-				</ul>
-				<!--Final De La Lista Anidada-->
+				<div id="barraNav" class="col-lg-2 lista">
 				</div>
 				<!--Aqui Esta Finaliza La La Barra De Menu-->
 				
 				<!--Contenido De La Administracion-->
-				<div class="col-lg-9 well" style="border: black 1px solid;">
+				<div class="col-lg-10 well" style="border: black 1px solid;">
 					<nav>
 						<div class="nav nav-tabs" id="nav-tab" role="tablist">
 							<ul class="nav nav-tabs" id="myTab">
@@ -62,9 +38,6 @@
 								</li>
 								<li class="nav-item pestaña" id="nav-adm-reg-li">
 									<a class="nav-item nav-link" id="nav-adm-reg-tab" data-toggle="tab" href="#nav-adm-reg" role="tab" aria-controls="nav-adm-reg" aria-selected="false">Registros</a>
-								</li>
-								<li class="nav-item pestaña" id="nav-adm-graf-li">
-									<a class="nav-item nav-link" id="nav-adm-graf-tab" data-toggle="tab" href="#nav-adm-graf" role="tab" aria-controls="nav-adm-graf" aria-selected="false">Gráficos</a>
 								</li>
 							</ul>
 						</div>
@@ -169,31 +142,6 @@
 						<div class="tab-pane fade" id="nav-adm-usr" role="tabpanel" aria-labelledby="nav-adm-usr-tab">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt vitae nobis placeat, adipisci consequatur harum error. Ducimus veritatis eius ex fugit vitae, repellendus accusantium animi, error quia qui facere quos!</div>
 						<div class="tab-pane fade" id="nav-adm-reg" role="tabpanel" aria-labelledby="nav-adm-reg-tab">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem sequi suscipit provident dolorum autem sunt amet hic maxime excepturi, nobis aspernatur earum debitis ad dignissimos, rem alias officiis nulla! Dignissimos.</div>
 						<div class="tab-pane fade" id="nav-inv-repo" role="tabpanel" aria-labelledby="nav-inv-repo-tab">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem sequi suscipit provident dolorum autem sunt amet hic maxime excepturi, nobis aspernatur earum debitis ad dignissimos, rem alias officiis nulla! Dignissimos.</div>
-						<div class="tab-pane fade" id="nav-adm-graf" role="tabpanel" aria-labelledby="nav-adm-graf-tab">
-							<ul class="menu">
-								<li>
-									<a style="color: #5a5a5a;">Desde:</a>
-								</li>
-								<li>
-									<input type="date" style="width: 110px;" >
-									<span class="glyphicon glyphicon-calendar" style="font-size: 20px"></span>
-								</li>
-								<li>
-									<a style="color: #5a5a5a;margin-left: 10px">Hasta:</a>
-								</li>
-								<li>
-									<input type="date" style="width: 110px;" >
-									<span class="glyphicon glyphicon-calendar" style="font-size: 20px"></span>
-								</li>
-							</ul>
-							<select>
-								<option>--</option>
-								<option selected>Productos</option>
-							</select>
-							<input type="text" placeholder="Buscar" value="Jeringas">
-							<div id="div-graf" style="width: 700px; height: 400px ">
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -204,6 +152,5 @@
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/carousel.js"></script>
 	<script src="js/pestañas.js"></script>
-	<script src="js/highcharts.js"></script>
-	<script src="js/graficos.js"></script>
+	<script src="js/menu.js"></script>
 </html>
