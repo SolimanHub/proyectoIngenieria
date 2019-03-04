@@ -16,15 +16,15 @@
 			<div class="row">
 
 				<!--Aqui Esta Contenida La La Barra De Menu-->
-				<div id="barraNav" class="col-lg-2 col-md-3 lista"></div>
+				<div id="barraNav" class="col-lg-2 col-sm-2 col-md-3 lista"></div>
 				<!--Aqui Esta Finaliza La La Barra De Menu-->
 
 				<!--=============================================================================================-->
 				<!--Contenido De la factura-->
 
-				<div class="col-lg-10 col-md-10 well" style="border: black 1px solid;background-image:url(img/catalogo.jpg); ">
+				<div class="col-lg-10 col-md-10 col-sm-10 well" style="border: black 1px solid;background-image:url(img/catalogo.jpg); ">
 
-					<div class="col-md-8 col-lg-8 well" style="background-color: rgba(255,255,255,0.9) ;">
+					<div class="col-md-8 col-lg-8 col-sm-8 well" style="background-color: rgba(255,255,255,0.9) ;">
 						<!--Informacion de la factura-->
 						<p><h5><strong>Codigo factura: 000 </strong></h5></p>
 						<hr>
@@ -39,10 +39,10 @@
 							<!--Servicios por categoria-->
 							<!--Categoria 1-->
 							<div class="row">
-								<div class="col-md-4 col-lg-4">
+								<div class="col-md-4 col-lg-4 col-sm-4">
 									<strong>Perfil básico Metabólico</strong>
 								</div>
-								<div class="col-md-8 col-lg-8">
+								<div class="col-md-8 col-lg-8 col-sm-4">
 									<table class="table table-striped">
 										<tr>
 											<th>Tarjeta de salud</th>
@@ -54,10 +54,10 @@
 							</div>
 							<!--Categoria 2-->
 							<div class="row">
-								<div class="col-md-4 col-lg-4">
+								<div class="col-md-4 col-lg-4 col-sm-4">
 									<strong>Perfil Hepátitico</strong>
 								</div>
-								<div class="col-md-8 col-lg-8">
+								<div class="col-md-8 col-lg-8 col-sm-8">
 									<table class="table table-striped">
 											<tr>
 												<th>Bilirrubina</th>
@@ -82,9 +82,9 @@
 						</div>
 
 						<div class="row">
-							<div class="col-lg-4 col-md-4"></div>
-							<div class="col-lg-4 col-md-4"></div>
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-4 col-md-4 col-sm-4"></div>
+							<div class="col-lg-4 col-md-4 col-sm-4"></div>
+							<div class="col-lg-4 col-md-4 col-sm-4">
 								<button class="btn btn-primary btn-md" style="content-aling: center;">
 									<span><i class="glyphicon glyphicon-plus-sign"></i>Agregar</span>
 								</button>
@@ -94,7 +94,7 @@
 					</div>
 
 					<!--Inicio del Menu de servicios-->
-					<div class="col-md-4 col-lg-4" id="wrapper">
+					<div class="col-lg-4 col-md-4 col-sm-4" id="wrapper">
 						<h4><strong>Servicios</strong></h4>
 						<ul class="menu">
 							<li class="item1" style="margin-bottom:-20px"><a href="#">Perfil Básico Metabólico</a>

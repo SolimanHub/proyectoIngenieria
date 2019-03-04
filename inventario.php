@@ -18,10 +18,10 @@
 		<div class="container-fluid">
 			<div class="row">
 
-				<div id="barraNav" class="col-lg-2 lista"></div>
+				<div id="barraNav" class="col-lg-2 col-sm-1 lista"></div>
 
 				<!--Contenido Del Inventario-->
-				<div class="col-lg-10 well" style="border: black 1px solid;">
+				<div class="col-xl-10 col-lg-10 col-md-6 col-sm-6 well" style="border: black 1px solid;">
 					<nav>
 						<div class="nav nav-tabs" id="nav-tab" role="tablist">
 							<ul class="nav nav-tabs" id="myTab">
