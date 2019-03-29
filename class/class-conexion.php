@@ -1,69 +1,92 @@
 <?php
 	class Conexion{
-		private $usuario="root";
-		private $contrasena="";
-		private $host="localhost/XE";
-    private $link;
-    
-		public function __construct(){
-			$this->establecerConexion();			
+		//Clase encargada de crear y gestionar la conexion con la base de datos
+		private $host;
+		private $database;
+		private $usuario;
+		private $pass;
+		private $link;
+		private $puerto;
+		private $esConectado=false;
+		public function __construct(
+			$host =  "localhost",
+			$database =  "DB_EMANUEL",
+			$usuario =  "root",
+			$pass =  "",
+			$port = 3306,
+			$link = null
+		){
+			$this->host = $host;
+			$this->database = $database;
+			$this->usuario = $usuario;
+			$this->pass = $pass;
+			$this->port = $port;
+			$this->establecerConexion();
 		}
-		public function establecerConexion(){
-			$this->link = oci_connect($this->usuario, $this->contrasena, $this->host,'AL32UTF8');
+		public function establecerConexion () {
+			// MySQLi
+			$this->link = mysqli_connect(
+				$this->host,
+				$this->usuario,
+				$this->pass,
+				$this->database,
+				$this->puerto
+			);
 			if (!$this->link){
-				echo "No se pudo conectar con oracle";
+				$this->esConectado = false;
+				echo "No se pudo conectar con mysql";
 				exit;
+			} else {
+				mysqli_set_charset($this->link,"utf8");
+				$this->esConectado = true;
 			}
 		}
-		public function cerrarConexion(){
-			oci_close($this->link);
+		public function antiInyeccion($texto){
+			return mysqli_real_escape_string($this->link, $texto);
 		}
-		public function commit(){
-			oci_commit($this->link);
+		public function getResultadoQuery($sql, $valores){
+			if ($this->esConectado) {
+				for ($i=0; $i < count($valores) ; $i++){
+					$valores[$i] = $this->antiInyeccion($valores[$i]);
+				}
+				$consulta = vsprintf($sql, $valores);
+				$resultado = mysqli_query($this->link, $consulta);
+				return $resultado;
+			}else{
+				return null;
+			}
 		}
-		public function rollback(){
-			oci_rollback($this->link);
+		public function getFila($resultado){
+			return mysqli_fetch_array($resultado, MYSQLI_ASSOC);
 		}
-		public function ejecutarInstruccion($sql){
-			$instruccion = oci_parse($this->link, $sql);
-			oci_execute($instruccion);
-			return $instruccion;
+		// Retorna los registros asociados a una consulta SQL
+		// en la base de datos
+		public function query($sql, $valores = []){
+			if($this->esConectado){
+				$registros = [];
+				$resultado = $this->getResultadoQuery($sql, $valores);
+				if ($resultado != null) {
+					while ($fila = $this->getFila($resultado)) {
+						$registros[] = $fila;
+					}
+				}
+				$this->liberarResultado($resultado);
+				return $registros;
+			}else{
+				return null;
+			}
+		}
+		public function liberarResultado ($resultado) {
+			mysqli_free_result($resultado);
+		}
+		public function ejecutarConsulta($sql){
+			return mysqli_query ($this->link, $sql);
 		}
 		public function obtenerFila($resultado){
-			return oci_fetch_array($resultado);
+			return mysqli_fetch_array ($resultado);
 		}
-		public function obtenerArregloAsociativo($resultado){
-			return oci_fetch_assoc($resultado);
-		}
-		public function cantidadRegistros($resultado){
-			return oci_num_rows($resultado);
-		}
-		public function liberarResultado($resultado){
-			oci_free_statement($resultado);
-		}
-		public function getUsuario(){
-			return $this->usuario;
-		}
-		public function setUsuario($usuario){
-			$this->usuario = $usuario;
-		}
-		public function getContrasena(){
-			return $this->contrasena;
-		}
-		public function setContrasena($contrasena){
-			$this->contrasena = $contrasena;
-		}
-		public function getHost(){
-			return $this->host;
-		}
-		public function setHost($host){
-			$this->host = $host;
-		}		
-		public function getLink(){
-			return $this->link;
-		}
-		public function setLink($link){
-			$this->link = $link;
+		public function cerrar(){
+			mysqli_close($this->link);
 		}
 	}
 ?>
