@@ -6,6 +6,11 @@ Licensed under MIT
 
 body {
   background: #F1F3FA;
+  overflow-y: hidden;
+}
+
+#barraNav{
+  background: white;
 }
 
 /* sub menu de opcion facturacion*/
@@ -129,4 +134,10 @@ body {
   padding: 20px;
   background: #fff;
   min-height: 460px;
+}
+
+ul ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="css/styleBarra.css">
 		<link href="http://allfont.es/allfont.css?fonts=comic-sans-ms" rel="stylesheet" type="text/css" />
 	</head>
-	<body>
+	<body style="overflow-y:visible">
 
 		<!--Contenedor-->
 		<div class="container-fluid">

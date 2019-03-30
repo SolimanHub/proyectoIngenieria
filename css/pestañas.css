@@ -23,6 +23,9 @@ ul#tabs li a.selected {
     font-weight: bold; 
     padding: 0.7em 0.3em 0.38em 0.3em; 
 }
+ul#tabs li a.selected:hover{
+    background-color: black !important;
+}
 div.tabContent { 
     border: 1px solid #c9c3ba; 
     padding: 0.5em; 

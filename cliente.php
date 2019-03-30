@@ -38,9 +38,7 @@
             <li><a href="">Tipo Cliente x: Regular x, Nuevo x, Perdido x, Aprox:"2 Meses"x</a></li>
           </ul>
           <!--Fin De Barra De Menu 2-->
-        </div>
-        <!-- Contenido Modulo Clientes-->
-        <div>
+          <!-- Contenido Modulo Clientes-->
           <table class="table table-striped table-hover" style="width: 1000px;">
             <tr>
               <td></td>
