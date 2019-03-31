@@ -60,8 +60,8 @@
     }
     public function crear($conexion){
       $sql = "
-        CALL SP_Insertar_Empleado(
-          '%s','%s','%s','%s','%s','%s',DATE('%s'),'%s',DATE('%s'),'%s', @mensaje, @error
+        CALL SP_INSERTAR_EMPLEADO(
+          '%s','%s','%d','%s','%s','%s',DATE('%s'),'%s','%s', @mensaje, @error
         );
       ";
       $valores = [
@@ -73,14 +73,13 @@
         $this->getNumeroIdentidad(),
         $this->getFechaNacimiento(),
         $this->getTelefono(),
-        $this->getFechaIngreso(),
         $this->getEdad()
       ];
       $rows = $conexion->query($sql, $valores);
       return $rows[0];
     }
     public function borrar($conexion){
-      $sql = 'CALL SP_Eliminar_Empleado(%s, @mensaje, @error);';
+      $sql = 'CALL SP_ELIMINAR_EMPLEADO(%d, @mensaje, @error);';
       $valores = [
         $this->getIdEmpleado()
       ];
@@ -89,11 +88,12 @@
     }
     public function actualizar($conexion){
       $sql = "
-      CALL SP_Actualizar_Empleado(
-        '%s','%s','%s','%s','%s','%s',DATE('%s'),'%s',DATE('%s'),'%s', @mensaje, @error
+      CALL SP_ACTUALIZAR_EMPLEADO(
+        '%d','%s','%s','%s','%s','%s','%s',DATE('%s'),'%s','%s', @mensaje, @error
       );
       ";
       $valores = [
+        $this->getIdEmpleado(),
         $this->getNombre(),
         $this->getApellido(),
         $this->getGenero(),
@@ -102,7 +102,6 @@
         $this->getNumeroIdentidad(),
         $this->getFechaNacimiento(),
         $this->getTelefono(),
-        $this->getFechaIngreso(),
         $this->getEdad()
       ];
       $rows = $conexion->query($sql, $valores);
@@ -110,15 +109,15 @@
     }
     public function actualizarPerfil($conexion){
       $sql = "
-        CALL SP_Actualizar_Perfil(
+        CALL SP_ACTUALIZAR_PERFIL(
           '%d','%s','%s','%s', @mensaje, @error
         );
       ";
       $valores = [
         $this->getIdEmpleado(),
         $this->getEmail(),
-        $this->getDireccion(),
-        $this->getTelefono()
+        $this->getTelefono(),
+        $this->getDireccion()
       ];
     }
   }

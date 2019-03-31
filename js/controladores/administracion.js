@@ -100,7 +100,7 @@ function cargarEmpleados() {
         var tdBtnAcciones = document.createElement("td");
         var nombre = document.createTextNode(datos[i].NOMBRE + " " + datos[i].APELLIDO);
         var telefono = document.createTextNode(datos[i].TELEFONO);
-        var fechaIngreso = document.createTextNode(datos[i].FECHA_CONT);
+        var fechaIngreso = document.createTextNode(datos[i].FECHA_INGRESO);
         var btnAcciones = document.createElement("button");
         btnAcciones.className = "form-control";
         btnAcciones.innerText = "Acciones";
