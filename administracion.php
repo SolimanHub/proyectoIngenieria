@@ -10,6 +10,10 @@
 		<link rel="stylesheet" type="text/css" href="css/styleBarra.css">
 		<link rel="stylesheet" type="text/css" href="css/administracion.css">
 		<link href="http://allfont.es/allfont.css?fonts=comic-sans-ms" rel="stylesheet" type="text/css"/>
+
+		<link rel="stylesheet" type="text/css" href="plugin/bootstrap-select/css/bootstrap-select.min.css">
+		<link rel="stylesheet" type="text/css" href="plugin/jquery-confim/css/jquery-confirm.css">
+		<link rel="stylesheet" type="text/css" href="plugin/data-tables/css/datatables.min.css">
 	</head>
 	<body onload="init()">
 
@@ -27,10 +31,10 @@
 						<div class="nav nav-tabs" id="nav-tab" role="tablist">
 							<ul class="nav nav-tabs" id="myTab">
 								<li class="nav-item pestaña" id="nav-adm-soli-li">
-									<a class="nav-item nav-link active" id="nav-adm-soli-tab" data-toggle="tab" href="#nav-adm-soli" role="tab" aria-controls="nav-adm-soli" aria-selected="false">Solicitudes</a>
+									<a class="nav-item nav-link" id="nav-adm-soli-tab" data-toggle="tab" href="#nav-adm-soli" role="tab" aria-controls="nav-adm-soli" aria-selected="false">Solicitudes</a>
 								</li>
 								<li class="nav-item pestaña" id="nav-adm-usr-li">
-									<a class="nav-item nav-link" id="nav-adm-usr-tab" data-toggle="tab" href="#nav-adm-usr" role="tab" aria-controls="nav-adm-usr" aria-selected="false">Usuarios</a>
+									<a class="nav-item nav-link" id="nav-adm-usr-tab" data-toggle="tab" href="#nav-adm-usr" role="tab" aria-controls="nav-adm-usr" aria-selected="false">Empleados</a>
 								</li>
 								<li class="nav-item pestaña" id="nav-adm-reg-li">
 									<a class="nav-item nav-link" id="nav-adm-reg-tab" data-toggle="tab" href="#nav-adm-reg" role="tab" aria-controls="nav-adm-reg" aria-selected="false">Registros</a>
@@ -43,60 +47,18 @@
 						<div class="tab-pane fade" id="nav-adm-soli" role="tabpanel" aria-labelledby="nav-adm-soli-tab">
 							<div class="row">
 								<div class="col-lg-12 col-sm-3">
-									<ul class="menu">
-										<li>
-											<a style="color: #5a5a5a;">Solicitudes:</a>
-										</li>
-										<li>
-											<input class="form-control" type="text" placeholder="Buscar" style="width: 150px">
-										</li>
-									</ul>
-								</div>
-								<div class="col-lg-12 col-sm-3">
-									<table class="table table-striped">
+									<table class="table table-striped table-bordered w-100">
 										<thead>
 											<tr>
 												<th scope="col"><b>Nombre</b></th>
 												<th scope="col"><b>Descripcion</b></th>
-												<th scope="col"><b>Correo</b></th>
+												<th scope="col"><b>Usuario</b></th>
 												<th scope="col"><b>Teléfono</b></th>
 												<th scope="col"><b>Fecha</b></th>
 												<th scope="col"><b>Acciones</b></th>
 											</tr>
 										</thead>
-										<tbody>
-											<tr>
-												<th scope="row">Ramón Rosa</th>
-												<td>Acceso al modulo Facturación</td>
-												<td>ramon.presi@unah.hn</td>
-												<td>9900-0000</td>
-												<td>15/12/18</td>
-												<td><button class="form-control">Acciones</button></td>
-											</tr>
-											<tr>
-												<th scope="row">Ramón Rosa</th>
-												<td>Acceso al modulo Facturación</td>
-												<td>ramon.presi@unah.hn</td>
-												<td>9900-0000</td>
-												<td>15/12/18</td>
-												<td><button class="form-control">Acciones</button></td>
-											</tr>
-											<tr>
-												<th scope="row">Ramón Rosa</th>
-												<td>Acceso al modulo Facturación</td>
-												<td>ramon.presi@unah.hn</td>
-												<td>9900-0000</td>
-												<td>15/12/18</td>
-												<td><button class="form-control">Acciones</button></td>
-											</tr>
-											<tr>
-												<th scope="row">Ramón Rosa</th>
-												<td>Acceso al modulo Facturación</td>
-												<td>ramon.presi@unah.hn</td>
-												<td>9900-0000</td>
-												<td>15/12/18</td>
-												<td><button class="form-control">Acciones</button></td>
-											</tr>
+										<tbody id="table-solicitudes">
 										</tbody>
 									</table>
 								</div>
@@ -105,56 +67,97 @@
 						<!--Seccion Usuarios (Empleados)-->
 						<div class="tab-pane fade" id="nav-adm-usr" role="tabpanel" aria-labelledby="nav-adm-usr-tab">
 							<div class="row">
-								<ul class="menu">
-									<div class="col-xl-10">
-										<li>
-											<a style="color: #5a5a5a;">Usuarios:</a>
-										</li>
+								<div class="col-lg-12 col-sm-12">
+									<table class="table table-striped table-bordered w-100">
+										<thead>
+											<tr>
+												<th scope="col"><b>Nombre</b></th>
+												<th scope="col"><b>Teléfono</b></th>
+												<th scope="col"><b>Fecha Contratación</b></th>
+												<th scope="col"><b>Acciones</b></th>
+											</tr>
+										</thead>
+										<tbody id="table-empleados">
+
+										</tbody>
+									</table>
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarEmpleado">
+										<span class="glyphicon glyphicon-plus"></span>Agregar Empleado
+									</button>
+
+									<!-- Modal -->
+									<div class="modal fade" id="modalAgregarEmpleado" tabindex="-1" role="dialog" aria-labelledby="modalAgregarEmpleadoLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="modalAgregarEmpleadoLabel" style="text-align: center;font-weight: bold;">AGREGAR EMPLEADO</h5>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="row modal-body">
+													<!-- Formulario -->
+													<div class="form-group col-12 col-sm-6 col-md-6">
+														<label for="nombre">Nombre:</label>
+														<input type="text" class="form-control" id="nombre" name="nombre"  placeholder="Nombre">
+													</div>
+
+													<div class="form-group col-12 col-sm-6 col-md-6">
+														<label for="apellido">Apellido:</label>
+														<input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
+													</div>
+
+													<div class="form-group col-12 col-sm-6 col-md-6">
+														<label for="edad">Edad:</label>
+														<input id="edad" class="form-control" type="text" placeholder="XX">
+													</div>
+
+													<div class="form-group col-12 col-sm-6 col-md-6">
+														<label for="numero-identidad">Número de identidad:</label>
+														<input type="text" class="form-control" id="numero-identidad" name="numero-identidad" placeholder="0102199912345">
+													</div>
+
+													<div class="form-group col-12 col-sm-6 col-md-6">
+														<label for="email">Correo Electrónico:</label>
+														<input type="text" class="form-control" id="email" name="email" placeholder="correo@gmail.com">
+													</div>
+
+													<div class="form-group col-12 col-sm-6 col-md-6">
+														<label for="telefono">Teléfono:</label>
+														<input id="telefono" class="form-control" type="text" placeholder="9900-0000">
+													</div>
+
+													<div class="form-group col-12 col-sm-6 col-md-6">
+														<label for="fecha-ingreso">Fecha Ingreso:</label>
+														<input type="date" id="fecha-ingreso" class="form-control" placeholder="1999-12-31" style="padding-top:0">
+													</div>
+
+													<div class="form-group col-12 col-sm-6 col-md-6">
+														<label for="direccion">Dirección:</label>
+														<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección">
+													</div>
+
+													<div class="form-group col-12 col-sm-6 col-md-6">
+														<label for="fecha-nacimiento">Fecha Nacimiento:</label>
+														<input type="date" id="fecha-nacimiento" class="form-control" placeholder="1999-12-31" style="padding-top:0">
+													</div>
+
+													<div class="form-group col-12 col-sm-6 col-md-6">
+														<label for="slc-genero">Género:</label>
+														<select id="slc-genero" class="form-control" title="genero" data-style="btn-primary" style="margin-left: 4%;margin-top: 10px;">
+															<option value="2">Femenino</option>
+															<option value="1">Masculino</option>
+														</select>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+													<button type="button" class="btn btn-primary">Crear Empleado</button>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="col-xl-2">
-										<li>
-											<input class="form-control" type="text" placeholder="Buscar" style="width: 150px;">
-										</li>
-									</div>
-								</ul>
-							</div>
-							<div class="row">
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th scope="col"><b>Nombre</b></th>
-										<th scope="col"><b>Módulo</b></th>
-										<th scope="col"><b>Última Conexión</b></th>
-										<th scope="col"><b>Acciones</b></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">Ramón Rosa</th>
-										<td>Inventario</td>
-										<td>15/12/18</td>
-										<td><button class="form-control">Acciones</button></td>
-									</tr>
-									<tr>
-										<th scope="row">Ramón Rosa</th>
-										<td>Inventario</td>
-										<td>15/12/18</td>
-										<td><button class="form-control">Acciones</button></td>
-									</tr>
-									<tr>
-										<th scope="row">Ramón Rosa</th>
-										<td>Inventario</td>
-										<td>15/12/18</td>
-										<td><button class="form-control">Acciones</button></td>
-									</tr>
-									<tr>
-										<th scope="row">Ramón Rosa</th>
-										<td>Inventario</td>
-										<td>15/12/18</td>
-										<td><button class="form-control">Acciones</button></td>
-									</tr>
-								</tbody>
-							</table>
+								</div>
 							</div>
 						</div>
 						<!--Seccion Registros-->
@@ -167,8 +170,11 @@
 
 	</body>
 	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script src="js/carousel.js"></script>
 	<script src="js/pestañas.js"></script>
 	<script src="js/menu.js"></script>
+
+	<script src="js/controladores/validaciones.js"></script>
 	<script src="js/controladores/administracion.js"></script>
 </html>

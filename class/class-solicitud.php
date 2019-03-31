@@ -70,13 +70,24 @@
     }
 
     public static function leer($conexion){
-      $sql = 'SELECT * FROM TBL_SOLICITUDES';
+      $sql = 
+      ' SELECT * FROM TBL_SOLICITUDES A
+        INNER JOIN TBL_EMPLEADO B
+        ON (A.ID_USUARIO_EMISOR = B.ID_USUARIO)
+        INNER JOIN TBL_PERSONAS C
+        ON (B.ID_PERSONA = C.ID_PERSONA)
+        INNER JOIN TBL_USUARIOS D
+        ON (A.ID_USUARIO_EMISOR = D.ID_USUARIO)';
       $rows = $conexion->query($sql);
       return $rows;
     }
     public function leerPorId($conexion){
-      $sql = '
-        SELECT * FROM TBL_SOLICITUD
+      $sql = 
+      ' SELECT * FROM TBL_SOLICITUDES A
+        INNER JOIN TBL_EMPLEADO B
+        ON (A.ID_USUARIO_EMISOR = B.ID_USUARIO)
+        INNER JOIN TBL_PERSONA C
+        ON (B.ID_PERSONA = C.ID_PERSONA)
         WHERE ID_SOLICITUD = %s
       ';
       $valores = [$this->getIdSolicitud()];

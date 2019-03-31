@@ -4,14 +4,14 @@
   include_once("../class/class-empleado.php");
   include_once("../class/class-solicitud.php");
   
-  $conexion = new Conexion();
-  
   if(isset($_POST['accion'])){
     $conexion = new Conexion();
     switch ($_POST['accion']) {
       //Acciones con los empleados
       case 'leer-empleados':
         $res['data'] = Empleado::leer($conexion);
+        $res['data']['mensaje'] = 'Listado de Empleados';
+        $res['data']['resultado'] = true;
         echo json_encode($res);
       break;
       case 'leer-empleado-id':
@@ -19,6 +19,8 @@
         $empleado = new Empleado();
         $empleado->setIdEmpleado($idEmpleado);
         $res['data'] = $empleado->leerPorId($conexion);
+        $res['data']['mensaje'] = 'Empleado con id ' + $idEmpleado;
+        $res['data']['resultado'] = true;
         echo json_encode($res);
       break;
       case 'insertar-empleado':
@@ -99,6 +101,8 @@
       //Acciones con las solicitudes
       case 'leer-solicitudes':
         $res['data'] = Solicitud::leer($conexion);
+        $res['data']['mensaje'] = 'Listado de Solicitudes';
+        $res['data']['resultado'] = true;
         echo json_encode($res);
       break;
       case 'leer-solicitud-id':
@@ -106,6 +110,8 @@
         $solicitud = new Solicitud();
         $solicitud->setIdSolicitud($idSolicitud);
         $res['data'] = $solicitud->leerPorId($conexion);
+        $res['data']['mensaje'] = 'Solicitud con id ' + $idSolicitud;
+        $res['data']['resultado'] = true;
         echo json_encode($res);
       break;
       case 'actualizar-solicitud':
@@ -139,6 +145,7 @@
   } else {
     $res['data']['mensaje']='Accion no especificada';
     $res['data']['resultado']=false;
+    $res['data']['accion']=$_POST;
     echo json_encode($res);
   }
   

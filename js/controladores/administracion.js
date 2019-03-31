@@ -17,50 +17,110 @@ Forma.addTrigger(formaEmpleado);
 
 $(document).ready(function() {
 
-  /* Leer Empleado */
-  $('#table-info').DataTable({
-    pageLength: 10,
-    searching: true,
-    ordering: true,
-    paging: true,
-    responsive: true,
-    ajax: {
-      "async": true,
-      "crossDomain": true,
-      "url": "http://laboratorio-emanuel/ajax/acciones-administracion.php",
-      "method": "POST",
-      "dataType": "json",
-      "headers": {
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      "data": {
-        "accion": "leer-empleado"
-      }
-    },
-    language: {
-      oPaginate: {
-          sNext: '<i class="fas fa-forward"></i>',
-          sPrevious: '<i class="fas fa-backward"></i>'
-      }
-    },
-    columns: [
-      { data: "nombre", title: "Nombre"},
-      { data: "apellido", title: "Apellido"},
-      { data: "genero", title: "Genero"},
-      { data: "telefono", title: "Telefono"},
-      { data: "email", title: "Correo"},
-      { data: "fecha_ingreso", title: "Fecha Ingreso"},
-      { data: null, title: "Opción",
-      render: function (data, type, row, meta) {
-        return '<button type="button" onclick="funcionBuscar(\''+row.id_empleado+'\')" class="btn btn-default btn-sm" data-toggle="modal" data-target="#agregarempleado"><span class="far fa-edit edit"></span></button>'+
-              '<button type="button" onclick="funcionBorrar(\''+row.id_empleado+'\')" class="btn btn-default btn-sm"><span class="far fa-trash-alt trash"></span></button>';
-      }}
-    ]
-  });
+  cargarSolicitudes();
+  cargarEmpleados();
 
 });
 
-/* CRUD Empleado: Create */
+function cargarSolicitudes() {
+  //Obtencion de datos del servidor
+  var parametrosAjax = {
+    "url": "http://laboratorio-emanuel/ajax/acciones-administracion.php",
+    "method": "POST",
+    "dataType": "json",
+    "data": {
+      "accion" : "leer-solicitudes"
+    }
+  };
+
+  $.ajax(parametrosAjax).done(function (response) {
+    var datos = response.data;
+    //Creacion de los registros de la tabla
+    for(let i in datos){
+      if(datos[i] != datos.mensaje && datos[i] != datos.resultado){
+        var tr = document.createElement("tr");
+
+        var tdNombre = document.createElement("td");
+        var tdDescripcion = document.createElement("td");
+        var tdUsuario = document.createElement("td");
+        var tdTelefono = document.createElement("td");
+        var tdFecha = document.createElement("td");
+        var tdBtnAcciones = document.createElement("td");
+        var btnAcciones = document.createElement("button");
+
+        var nombre = document.createTextNode(datos[i].NOMBRE + " " + datos[i].APELLIDO);
+        var descripcion = document.createTextNode(datos[i].DESCRIPCION);
+        var usuario = document.createTextNode(datos[i].USUARIO);
+        var telefono = document.createTextNode(datos[i].TELEFONO);
+        var fecha = document.createTextNode(datos[i].FECHA);
+        btnAcciones.className = "form-control";
+        btnAcciones.innerText = "Acciones";
+  
+        tdNombre.appendChild(nombre);
+        tdDescripcion.appendChild(descripcion);
+        tdUsuario.appendChild(usuario);
+        tdTelefono.appendChild(telefono);
+        tdFecha.appendChild(fecha);
+        tdBtnAcciones.appendChild(btnAcciones);
+
+        tr.appendChild(tdNombre);
+        tr.appendChild(tdDescripcion);
+        tr.appendChild(tdUsuario);
+        tr.appendChild(tdTelefono);
+        tr.appendChild(tdFecha);
+        tr.appendChild(tdBtnAcciones);
+
+        $("#table-solicitudes").append(tr);
+      }
+    }
+  });
+}
+
+function cargarEmpleados() {
+  //Obtencion de datos del servidor
+  var parametrosAjax = {
+    "url": "http://laboratorio-emanuel/ajax/acciones-administracion.php",
+    "method": "POST",
+    "dataType": "json",
+    "data": {
+      "accion" : "leer-empleados"
+    }
+  };
+
+  $.ajax(parametrosAjax).done(function (response) {
+    var datos = response.data;
+    //Creacion de los registros de la tabla
+    for(let i in datos){
+      if(datos[i] != datos.mensaje && datos[i] != datos.resultado){
+        var tr = document.createElement("tr");
+
+        var tdNombre = document.createElement("td");
+        var tdTelefono = document.createElement("td");
+        var tdFechaIngreso = document.createElement("td");
+        var tdBtnAcciones = document.createElement("td");
+        var nombre = document.createTextNode(datos[i].NOMBRE + " " + datos[i].APELLIDO);
+        var telefono = document.createTextNode(datos[i].TELEFONO);
+        var fechaIngreso = document.createTextNode(datos[i].FECHA_CONT);
+        var btnAcciones = document.createElement("button");
+        btnAcciones.className = "form-control";
+        btnAcciones.innerText = "Acciones";
+  
+        tdNombre.appendChild(nombre);
+        tdTelefono.appendChild(telefono);
+        tdFechaIngreso.appendChild(fechaIngreso);
+        tdBtnAcciones.appendChild(btnAcciones);
+        tr.appendChild(tdNombre);
+        tr.appendChild(tdTelefono);
+        tr.appendChild(tdFechaIngreso);
+        tr.appendChild(tdBtnAcciones);
+
+        $("#table-empleados").append(tr);
+      }
+    }
+  });
+}
+
+/* CRUD Empleado: Create 
 $('#guardar-empleado').click(function(){
   var settings = {
     "async": true,
@@ -90,10 +150,10 @@ $('#guardar-empleado').click(function(){
     imprimirMensaje(response);
   });
 
-});
+});*/
 
-/* Buscar un Empleado */
-function funcionBuscar(id){
+/* Buscar un Empleado 
+function buscarEmpleado(id){
   $("#inputGroupFile").removeClass('is-valid');
   // Se hace el cambio del footer en el Modal
   $("#footer-guardar").hide();
@@ -167,9 +227,9 @@ $("#actualizar-empleado").click(function(){
     imprimirMensaje(response);
   });
 
-});
+});*/
 
-/* CRUD Empleado: Delete */
+/* CRUD Empleado: Delete 
 function funcionBorrar(id){
   var settings = {
     "async": true,
@@ -222,7 +282,7 @@ function funcionBorrar(id){
                   content: '',
                 });
 
-              $('#table-info').DataTable().ajax.reload();
+              $('#table-empleados').DataTable().ajax.reload();
               })
             }
 
@@ -233,12 +293,12 @@ function funcionBorrar(id){
        }
      })
   });
-}
-
+}*/
+/*
 function imprimirMensaje(response){
   if (response.data.error == 0) {
     console.log(response.data);
-    $('#table-info').DataTable().ajax.reload(); // Se encarga de refrescar las tablas
+    $('#table-empleados').DataTable().ajax.reload(); // Se encarga de refrescar las tablas
 
     $("#div-exito").html(response.data.mensaje);
     $("#div-exito").removeClass("d-none");
@@ -260,8 +320,8 @@ function imprimirMensaje(response){
     });
   }
 }
-
-/* Función que se encarga de dejar los campos por defecto */
+*/
+/* Función que se encarga de dejar los campos por defecto 
 $(".reset").click(function(){
   $("#footer-actualizar").addClass("d-none");
   $("#footer-guardar").show();
@@ -281,4 +341,4 @@ $(".reset").click(function(){
   $('#fecha-nacimiento').val("");
   $('#fecha-ingreso').val("");
 
-});
+});*/

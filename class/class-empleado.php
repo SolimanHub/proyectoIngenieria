@@ -39,13 +39,18 @@
       $this->fechaDespido = $fechaDespido;
     }
     public static function leer($conexion){
-      $sql = 'SELECT * FROM TBL_EMPLEADO';
+      $sql = 
+      ' SELECT * FROM TBL_EMPLEADO A
+        INNER JOIN TBL_PERSONAS B
+        ON (A.ID_PERSONA = B.ID_PERSONA)';
       $rows = $conexion->query($sql);
       return $rows;
     }
     public function leerPorId($conexion){
-      $sql = '
-        SELECT * FROM TBL_EMPLEADO
+      $sql = 
+      ' SELECT * FROM TBL_EMPLEADO A
+        INNER JOIN TBL_PERSONAS B
+        ON (A.ID_PERSONA = B.ID_PERSONA)
         WHERE ID_EMPLEADO = %s
       ';
       $valores = [$this->getIdEmpleado()];
