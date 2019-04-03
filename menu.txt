@@ -1,0 +1,62 @@
+<script src="js/menuFun.js"></script>
+
+<div class="profile-sidebar">
+  <!-- SIDEBAR USERPIC -->
+  <div class="profile-userpic">
+    <img src="img/usuario.jpg" class="img-responsive" style="border-radius: 50%;">
+  </div>
+  <!-- END SIDEBAR USERPIC -->
+  <!-- SIDEBAR USER TITLE -->
+  <div class="profile-usertitle">
+    <div class="profile-usertitle-name">
+      Nombre usuario
+    </div>
+    <div class="profile-usertitle-job">
+      Cargo usuario
+    </div>
+  </div>
+  <!-- END SIDEBAR USER TITLE -->
+  <!-- SIDEBAR MENU -->
+  <div class="profile-usermenu">
+    <ul class="nav">        
+      <li class="active">
+        <a id="id_fac" href="#">
+        <i class="glyphicon glyphicon-home"></i>
+        Facturación </a>
+        <div class="desplegable">
+          <ul class="menu-interno">
+            <li><a class="item1-menu-interno" href="crear_factura.php">Nueva</a></li>
+            <li><a class="item2-menu-interno" href="historial_facturas.php">Historial</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="inventario.php">
+        <i class="glyphicon glyphicon-user"></i>
+        Inventario </a>
+      </li>
+      <li>
+        <a href="EmisionResultados.php">
+        <i class="glyphicon glyphicon-list-alt"></i>
+        Emisión de Resultados </a>
+      </li>
+      <li>
+        <a href="catalogo.php">
+        <i class="glyphicon glyphicon-ok"></i>
+        Catálogo de servicios </a>
+      </li>
+      <li>
+        <a href="cliente.php">
+        <i class="glyphicon glyphicon-flag"></i>
+        Cliente </a>
+      </li>
+      <li>
+        <a href="administracion.php">
+        <i class="glyphicon glyphicon-flag"></i>
+        Administración </a>
+      </li>
+    </ul>
+  </div>
+  <!-- END MENU -->
+</div>
+
