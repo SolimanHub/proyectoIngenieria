@@ -18,3 +18,9 @@ body{
 .sector-contenido{
   padding-bottom: 100%;
 }
+
+.centroMsj{
+  text-align: center;
+  color: red;
+}
+
