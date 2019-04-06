@@ -135,7 +135,7 @@ $("#crearPromo").click(function(argument){
         //============================================
       } else {
         $("#msj").html("La fecha final, no puede ser menor a la fecha de inicio");
-        window.setTimeout(function() {
+        window.setTimeout(function() { 
           $("#msj").html("");
         }, 2500);
       }
